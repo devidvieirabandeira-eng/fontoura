@@ -1,0 +1,6 @@
+# Só o site vai para o GitHub (é o que o GitHub Pages publica).
+# Planilha/script, prompt, HTML de referência e logo original ficam só neste computador.
+*
+!.gitignore
+!index.html
+!logo-fontoura-web.png
