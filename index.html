@@ -449,32 +449,36 @@ button.m-shot:focus-visible{outline-offset:-3px}
 .m-side .btn-ghost{align-self:flex-start}
 .m-cta{display:none}
 
-/* ── Cores no celular/tablet ──────────────────────────
+/* ── Cores por seção (celular e computador) ───────────
    Degradê só na tela inicial. Daí para baixo, cada seção tem uma cor sólida da
-   mesma família de verdes, alternando tons, para cada parte ter a sua identidade. */
-@media (max-width:900px){
-  body::before{background:#051416}
-  .hero{background:
-    radial-gradient(ellipse 140% 65% at 100% 0%,rgba(18,104,106,.9),transparent 70%),
-    radial-gradient(ellipse 120% 45% at 0% 100%,rgba(10,68,70,.6),transparent 70%),
-    #051416}
-  .featured{background:#082a2c;padding-bottom:72px}            /* verde profundo */
-  #imoveis{background:#051416;padding-bottom:80px}              /* base escura: as fotos se destacam */
-  .how{background:#0b2224}                                      /* superfície */
-  /* Faixa de números: fundo escuro com filetes e números dourados (o dourado é o destaque da marca) */
-  .band{padding:72px 0;-webkit-mask-image:none;mask-image:none;background:
-    linear-gradient(to right,transparent,rgba(212,171,82,.55) 20% 80%,transparent) top/100% 1px no-repeat,
-    linear-gradient(to right,transparent,rgba(212,171,82,.55) 20% 80%,transparent) bottom/100% 1px no-repeat,
-    #071e20}
-  .band-item b{color:var(--gold-light)}
-  .band-item small{color:var(--n300)}
-  .testi{background:#061b1d;padding-bottom:var(--sec-y)}        /* quase preto esverdeado */
-  .about{background:#082a2c}                                    /* verde profundo */
-  .contact{background:#0b2224}                                  /* superfície */
-  .contact .form-card{background:#051416;box-shadow:0 0 0 1px #1f3a3b}
-  .contact .input{background-color:#0b2224}
-  .footer{background:#030e0f}
-}
+   mesma família de verdes, alternando tons, para cada parte ter a sua identidade.
+   No computador o conteúdo tem largura máxima; a sombra larga + clip-path estende
+   a cor da seção até as bordas da tela sem criar rolagem lateral. */
+body::before{background:#051416}
+.hero{background:
+  radial-gradient(ellipse 140% 65% at 100% 0%,rgba(18,104,106,.9),transparent 70%),
+  radial-gradient(ellipse 120% 45% at 0% 100%,rgba(10,68,70,.6),transparent 70%),
+  #051416}
+.featured{--faixa:#082a2c;padding-bottom:72px}   /* verde profundo */
+#imoveis{--faixa:#051416;padding-bottom:80px}    /* base escura: as fotos se destacam */
+.how{--faixa:#0b2224}                            /* superfície */
+.testi{--faixa:#061b1d;padding-bottom:var(--sec-y)} /* quase preto esverdeado */
+.about{--faixa:#082a2c}                          /* verde profundo */
+.contact{--faixa:#0b2224}                        /* superfície */
+.footer{--faixa:#030e0f}
+.featured,#imoveis,.how,.testi,.about,.contact,.footer{
+  background:var(--faixa);box-shadow:0 0 0 100vmax var(--faixa);clip-path:inset(0 -100vmax)}
+/* Faixa de números: fundo escuro com filetes e números dourados (o dourado é o destaque da marca) */
+.band{-webkit-mask-image:none;mask-image:none;background:
+  linear-gradient(to right,transparent,rgba(212,171,82,.55) 20% 80%,transparent) top/100% 1px no-repeat,
+  linear-gradient(to right,transparent,rgba(212,171,82,.55) 20% 80%,transparent) bottom/100% 1px no-repeat,
+  #071e20}
+.band-item b{color:var(--gold-light)}
+.band-item small{color:var(--n300)}
+.contact .form-card{background:#051416;box-shadow:0 0 0 1px #1f3a3b}
+.contact .input{background-color:#0b2224}
+@media (max-width:900px){.band{padding:72px 0}}
+
 /* ── Tablet ───────────────────────────────────────── */
 
 @media (max-width:900px){
