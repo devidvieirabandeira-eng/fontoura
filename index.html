@@ -449,34 +449,27 @@ button.m-shot:focus-visible{outline-offset:-3px}
 .m-side .btn-ghost{align-self:flex-start}
 .m-cta{display:none}
 
-/* ── Tablet ───────────────────────────────────────── */
 /* ── Cores no celular/tablet ──────────────────────────
-   O fundo fixo fica igual em toda a rolagem; aqui o degradê base fica mais vivo
-   e cada seção ganha o seu brilho, que rola junto e alterna os lados. Cada brilho
-   chega a transparente antes da borda da seção, para não aparecer emenda. */
+   Degradê só na tela inicial. Daí para baixo, cada seção tem uma cor sólida da
+   mesma família de verdes, alternando tons, para cada parte ter a sua identidade. */
 @media (max-width:900px){
-  body::before{
-    background:
-      radial-gradient(140vw 75vh at 100% 0%,rgba(14,90,92,.8),transparent 70%),
-      radial-gradient(130vw 70vh at 0% 100%,rgba(10,68,70,.6),transparent 70%),
-      #051416;
-  }
+  body::before{background:#051416}
   .hero{background:
-    radial-gradient(ellipse 120% 35% at 100% 35%,rgba(18,104,106,.55),transparent),
-    radial-gradient(ellipse 110% 25% at 0% 75%,rgba(10,68,70,.5),transparent)}
-  .featured{background:radial-gradient(ellipse 95% 50% at 0% 50%,rgba(14,90,92,.5),transparent)}
-  #imoveis{background:
-    radial-gradient(ellipse 100% 25% at 100% 25%,rgba(14,90,92,.42),transparent),
-    radial-gradient(ellipse 100% 25% at 0% 75%,rgba(12,78,80,.42),transparent)}
-  .how{background:radial-gradient(ellipse 100% 50% at 0% 50%,rgba(14,90,92,.45),transparent)}
-  .testi{background:
-    radial-gradient(ellipse 90% 45% at 100% 45%,rgba(14,90,92,.45),transparent),
-    radial-gradient(ellipse 70% 30% at 15% 70%,rgba(212,171,82,.09),transparent)}
-  .about{background:radial-gradient(ellipse 100% 50% at 0% 50%,rgba(18,104,106,.5),transparent)}
-  .contact{background:
-    radial-gradient(ellipse 100% 45% at 100% 50%,rgba(14,90,92,.45),transparent),
-    radial-gradient(ellipse 60% 25% at 0% 80%,rgba(212,171,82,.08),transparent)}
+    radial-gradient(ellipse 140% 65% at 100% 0%,rgba(18,104,106,.9),transparent 70%),
+    radial-gradient(ellipse 120% 45% at 0% 100%,rgba(10,68,70,.6),transparent 70%),
+    #051416}
+  .featured{background:#082a2c;padding-bottom:72px}            /* verde profundo */
+  #imoveis{background:#051416;padding-bottom:80px}              /* base escura: as fotos se destacam */
+  .how{background:#0b2224}                                      /* superfície */
+  .band{background:#0a4446;-webkit-mask-image:none;mask-image:none} /* faixa de números: o tom mais claro */
+  .testi{background:#061b1d;padding-bottom:var(--sec-y)}        /* quase preto esverdeado */
+  .about{background:#082a2c}                                    /* verde profundo */
+  .contact{background:#0b2224}                                  /* superfície */
+  .contact .form-card{background:#051416;box-shadow:0 0 0 1px #1f3a3b}
+  .contact .input{background-color:#0b2224}
+  .footer{background:#030e0f}
 }
+/* ── Tablet ───────────────────────────────────────── */
 
 @media (max-width:900px){
   .nav-links,.nav-wa{display:none}
